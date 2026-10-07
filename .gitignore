@@ -1,0 +1,26 @@
+# --- Secrets: never commit real credentials ---
+.env
+backend/.env
+
+# --- Local-only data pack (provided separately, not for GitHub) ---
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# --- Python ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Node / frontend ---
+node_modules/
+dist/
+*.log
+
+# --- OS / editor cruft ---
+.DS_Store
+.idea/
+.vscode/

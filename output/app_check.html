@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campus Customs — App Check (Problem 11)</title>
+  <style>
+    :root { --yale:#00356b; --blue:#1763b6; --ink:#13243b; --muted:#5c6b86; --line:#d9e2f0; --soft:#eef4fc; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:var(--ink); background:#fff; }
+    header { background:var(--yale); color:#fff; padding:2rem 1.25rem; }
+    .wrap { max-width:1000px; margin:0 auto; padding:0 1.25rem; }
+    header h1 { margin:0 0 .35rem; font-family:Georgia,serif; font-size:2rem; }
+    header p { margin:0; color:#cfe0f5; }
+    .meta { max-width:1000px; margin:1.5rem auto 0; padding:0 1.25rem; color:var(--muted); font-size:.92rem; }
+    .check { max-width:1000px; margin:1.75rem auto; padding:0 1.25rem; }
+    .check h2 { font-family:Georgia,serif; color:var(--yale); border-left:4px solid var(--blue); padding-left:.65rem; margin:0 0 .25rem; }
+    .tag { display:inline-block; background:var(--soft); color:var(--blue); font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.2rem .55rem; border-radius:999px; margin-bottom:.6rem; }
+    figure { margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:0 10px 26px rgba(0,53,107,.1); }
+    figure img { display:block; width:100%; }
+    figcaption { padding:.85rem 1rem; background:#fff; color:var(--ink); font-size:.95rem; line-height:1.5; border-top:1px solid var(--line); }
+    figcaption strong { color:var(--yale); }
+    footer { max-width:1000px; margin:2.5rem auto; padding:1.25rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Campus Customs — Live Site App Check</h1>
+      <p>Homework 4, Problem 11 · three tests run against the running site and FastAPI + PydanticAI backend.</p>
+    </div>
+  </header>
+
+  <p class="meta">Each screenshot below was captured from the live app (frontend on <code>:5173</code>, backend on <code>:8000</code>) reading the real <code>campus_customs.db</code>.</p>
+
+  <section class="check">
+    <span class="tag">Check 1 — Inventory</span>
+    <h2>Chat checks real stock &amp; price from the database</h2>
+    <figure>
+      <img src="app_check_images/inventory.png" alt="Chat answering a stock and price question for the Basic Hoodie Big Yale" />
+      <figcaption>
+        Asked <em>"Is the Basic Hoodie Big Yale in stock in size L? How much is it?"</em>, the assistant replies
+        <strong>"in stock in size L, with 8 left. It's $68."</strong> Those numbers match the database exactly
+        (price <strong>$68.00</strong>, size L quantity <strong>8</strong>), proving the agent reads live stock and price rather than guessing.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="check">
+    <span class="tag">Check 2 — Dynamic cards</span>
+    <h2>Category question updates the page with product cards</h2>
+    <figure>
+      <img src="app_check_images/hoodies.png" alt="From your chat results band showing hoodie product cards after asking about hoodies" />
+      <figcaption>
+        Asking <em>"what hoodies do you have?"</em> makes the agent search the catalogue and the
+        <strong>"From your chat"</strong> strip appears on the page with matching hoodie cards (image, name, price, short info).
+        This proves the chat's structured matches render live on the site, each card linking to its product page.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="check">
+    <span class="tag">Check 3 — Usability (Problem 9)</span>
+    <h2>Quick-reply chips help shoppers start the chat</h2>
+    <figure>
+      <img src="app_check_images/usability.png" alt="Chat panel showing tappable quick-reply suggestion chips under the greeting" />
+      <figcaption>
+        On a fresh conversation the chat shows tappable starter prompts
+        (<strong>Hoodies under $70, Gifts for Mom, Show me crewnecks, Fleece &amp; jackets</strong>).
+        This proves the Problem 9 usability feature works: shoppers can begin browsing with one tap instead of typing.
+      </figcaption>
+    </figure>
+  </section>
+
+  <footer>
+    Generated for Homework 4, Problem 11. Screenshots live in <code>app_check_images/</code>. Open this file by double-clicking it.
+  </footer>
+</body>
+</html>
